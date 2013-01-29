@@ -5,9 +5,10 @@
 
 (in-package :irc)
 
-(defvar connection (connect :nickname "marilene"
+(setq connection (connect :nickname "marilene"
 			    :realname "Ola marilene!"
 			    :server "irc.freenode.org"))
 
-(mapcan (lambda (channel) (princ channel))
+(mapcan (lambda (channel) (join connection channel))
 	channels)
+
